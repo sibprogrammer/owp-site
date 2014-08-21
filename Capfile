@@ -10,7 +10,7 @@ end
 desc 'Sync site with production server.'
 task :sync do
   find_servers.each do |server|
-    run_locally "rsync -avzr --no-owner --no-group -e ssh --rsync-path='sudo rsync' ./_site/ #{user}@#{server}:#{deploy_to}"
+    run_locally "rsync -avzr --no-owner --no-group -e ssh --rsync-path='rsync' ./_site/ #{user}@#{server}:#{deploy_to}"
   end
 end
 
